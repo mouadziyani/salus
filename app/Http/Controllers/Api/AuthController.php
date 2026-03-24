@@ -28,7 +28,7 @@ class AuthController extends Controller
                 'user' => $user,
                 'token' => $token
             ],
-            'message' => 'OpÈration rÈussie'
+            'message' => 'Op√©ration r√©ussie'
         ], 201);
     }
 
@@ -54,7 +54,7 @@ class AuthController extends Controller
                 'user' => $user,
                 'token' => $token
             ],
-            'message' => 'OpÈration rÈussie'
+            'message' => 'Op√©ration r√©ussie'
         ]);
     }
 
@@ -65,7 +65,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'data' => (object) [],
-            'message' => 'DÈconnexion rÈussie'
+            'message' => 'D√©connexion r√©ussie'
         ]);
     }
 
@@ -76,7 +76,7 @@ class AuthController extends Controller
             'data' => [
                 'user' => $request->user()
             ],
-            'message' => 'OpÈration rÈussie'
+            'message' => 'Op√©ration r√©ussie'
         ]);
     }
 }
