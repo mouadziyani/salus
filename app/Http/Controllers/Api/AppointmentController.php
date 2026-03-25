@@ -22,7 +22,7 @@ class AppointmentController extends Controller
             'data' => [
                 'appointments' => $appointments,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -35,7 +35,7 @@ class AppointmentController extends Controller
             'data' => [
                 'appointment' => $appointment,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ], 201);
     }
 
@@ -60,7 +60,7 @@ class AppointmentController extends Controller
             'data' => [
                 'appointment' => $appointment,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -85,7 +85,7 @@ class AppointmentController extends Controller
             'data' => [
                 'appointment' => $appointment,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -108,7 +108,8 @@ class AppointmentController extends Controller
         return response()->json([
             'success' => true,
             'data' => (object) [],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 }
+
