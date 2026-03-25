@@ -22,7 +22,7 @@ class HealthAdviceController extends Controller
             'data' => [
                 'advices' => $advices,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -124,7 +124,8 @@ class HealthAdviceController extends Controller
             'data' => [
                 'advice' => $advice,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ], 201);
     }
 }
+
