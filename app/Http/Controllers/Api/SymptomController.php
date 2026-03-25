@@ -21,7 +21,7 @@ class SymptomController extends Controller
             'data' => [
                 'symptoms' => $symptoms,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -34,7 +34,7 @@ class SymptomController extends Controller
             'data' => [
                 'symptom' => $symptom,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ], 201);
     }
 
@@ -57,7 +57,7 @@ class SymptomController extends Controller
             'data' => [
                 'symptom' => $symptom,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -82,7 +82,7 @@ class SymptomController extends Controller
             'data' => [
                 'symptom' => $symptom,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -105,7 +105,8 @@ class SymptomController extends Controller
         return response()->json([
             'success' => true,
             'data' => (object) [],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 }
+
