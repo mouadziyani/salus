@@ -10,6 +10,8 @@ class HealthAdvice extends Model
 {
     use HasFactory;
 
+    protected $table = 'health_advices';
+
     protected $fillable = [
         'user_id',
         'advice',
