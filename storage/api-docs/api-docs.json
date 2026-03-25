@@ -1,0 +1,437 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Health Assistant API",
+        "description": "REST API for symptoms, doctors, appointments, and AI health advice.",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
+    "paths": {
+        "/ai/health-advice": {
+            "get": {
+                "tags": [
+                    "AI"
+                ],
+                "operationId": "ee797cc3fc8fd4c80c309253b3a7f736",
+                "responses": {
+                    "200": {
+                        "description": "Advice history"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "AI"
+                ],
+                "operationId": "f98cc43247e7648f29825828171a4962",
+                "responses": {
+                    "201": {
+                        "description": "Generate advice"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/appointments/{id}": {
+            "get": {
+                "tags": [
+                    "Appointments"
+                ],
+                "operationId": "df068dde23db7d07cb713dd5b71438ad",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Appointment detail"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Appointments"
+                ],
+                "operationId": "0f5b0517511003ef9f647a09139447b7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update appointment"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Appointments"
+                ],
+                "operationId": "d7455da34d386406c0295c36e8e0e080",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete appointment"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/appointments": {
+            "get": {
+                "tags": [
+                    "Appointments"
+                ],
+                "operationId": "78259120cadf48f6e667ee6c97874aab",
+                "responses": {
+                    "200": {
+                        "description": "List appointments"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Appointments"
+                ],
+                "operationId": "372ed756f3eabdd4035b00f689689f10",
+                "responses": {
+                    "201": {
+                        "description": "Create appointment"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/doctors/{id}": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "operationId": "c75333df8bc9d679588ececda4ff874d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Doctor detail"
+                    }
+                }
+            }
+        },
+        "/doctors": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "operationId": "354c7859a8adb54e65d9f77ebd6ae0d2",
+                "responses": {
+                    "200": {
+                        "description": "List doctors"
+                    }
+                }
+            }
+        },
+        "/doctors/search": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "operationId": "a0297b67372db6dd0668c74bf2862cdd",
+                "parameters": [
+                    {
+                        "name": "specialty",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "city",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Search doctors"
+                    }
+                }
+            }
+        },
+        "/login": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "694e0bc9361ebc7c430e4704af5ff8e6",
+                "responses": {
+                    "200": {
+                        "description": "Logged in"
+                    }
+                }
+            }
+        },
+        "/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "f1a2a2614371cf8899b5bc0be4715b60",
+                "responses": {
+                    "200": {
+                        "description": "Logged out"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/me": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "337ad1420ac268d9eb44e2905b2a6de5",
+                "responses": {
+                    "200": {
+                        "description": "Current user"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "operationId": "c989f8d24107f1c62d29171d14332af8",
+                "responses": {
+                    "201": {
+                        "description": "Registered"
+                    }
+                }
+            }
+        },
+        "/symptoms/{id}": {
+            "get": {
+                "tags": [
+                    "Symptoms"
+                ],
+                "operationId": "0b79829f0db9cfdb2643908366ca7d1d",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Symptom detail"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "Symptoms"
+                ],
+                "operationId": "fc87e12ee3756a3823f70cf005762fbb",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Update symptom"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Symptoms"
+                ],
+                "operationId": "ee33acaf764d888dd3beb3e3cfe40769",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Delete symptom"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/symptoms": {
+            "get": {
+                "tags": [
+                    "Symptoms"
+                ],
+                "operationId": "f2fd01d764ac2969a3ed400e4e250d08",
+                "responses": {
+                    "200": {
+                        "description": "List symptoms"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Symptoms"
+                ],
+                "operationId": "ffe829b3e2834370800e76b8110bd42b",
+                "responses": {
+                    "201": {
+                        "description": "Create symptom"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "http",
+                "bearerFormat": "Bearer",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "AI",
+            "description": "AI"
+        },
+        {
+            "name": "Appointments",
+            "description": "Appointments"
+        },
+        {
+            "name": "Doctors",
+            "description": "Doctors"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Symptoms",
+            "description": "Symptoms"
+        }
+    ]
+}
