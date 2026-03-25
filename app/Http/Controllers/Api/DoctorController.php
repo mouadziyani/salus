@@ -17,7 +17,7 @@ class DoctorController extends Controller
             'data' => [
                 'doctors' => $doctors,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -40,7 +40,7 @@ class DoctorController extends Controller
             'data' => [
                 'doctor' => $doctor,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 
@@ -66,7 +66,8 @@ class DoctorController extends Controller
             'data' => [
                 'doctors' => $doctors,
             ],
-            'message' => 'Opération réussie'
+            'message' => 'The operation was successful'
         ]);
     }
 }
+
