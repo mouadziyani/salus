@@ -28,8 +28,8 @@ class HealthAdviceController extends Controller
 
     public function store(GenerateHealthAdviceRequest $request)
     {
-        $apiKey = config('services.openai.key');
-        $model = config('services.openai.model');
+        $apiKey = config('services.gemini.key');
+        $model = config('services.gemini.model');
 
         if (!$apiKey || !$model) {
             return response()->json([
@@ -68,21 +68,18 @@ class HealthAdviceController extends Controller
 
         $prompt = "User symptoms:\n" . $symptomLines . "\nProvide general wellness advice, not medical diagnosis.";
 
-        $response = Http::withToken($apiKey)
-            ->post('https://api.openai.com/v1/chat/completions', [
-                'model' => $model,
-                'messages' => [
-                    [
-                        'role' => 'system',
-                        'content' => 'You are a helpful wellness assistant.'
-                    ],
-                    [
-                        'role' => 'user',
-                        'content' => $prompt
+        $response = Http::withHeaders([
+            'x-goog-api-key' => $apiKey,
+            'Content-Type' => 'application/json',
+        ])->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent", [
+            'contents' => [
+                [
+                    'parts' => [
+                        ['text' => $prompt],
                     ],
                 ],
-                'temperature' => 0.4,
-            ]);
+            ],
+        ]);
 
         if (!$response->successful()) {
             return response()->json([
@@ -94,7 +91,7 @@ class HealthAdviceController extends Controller
             ], 502);
         }
 
-        $adviceText = $response->json('choices.0.message.content');
+        $adviceText = $response->json('candidates.0.content.parts.0.text');
 
         if (!$adviceText) {
             return response()->json([
