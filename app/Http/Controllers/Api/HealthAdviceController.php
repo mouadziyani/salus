@@ -68,18 +68,19 @@ class HealthAdviceController extends Controller
 
         $prompt = "User symptoms:\n" . $symptomLines . "\nProvide general wellness advice, not medical diagnosis.";
 
-        $response = Http::withHeaders([
-            'x-goog-api-key' => $apiKey,
-            'Content-Type' => 'application/json',
-        ])->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent", [
-            'contents' => [
-                [
-                    'parts' => [
-                        ['text' => $prompt],
-                    ],
-                ],
+$response = Http::withHeaders([
+    'x-goog-api-key' => $apiKey,
+    'Content-Type' => 'application/json',
+])->post("https://generativelanguage.googleapis.com/v1beta/models/{$model}:generateContent", [
+    'contents' => [
+        [
+            'parts' => [
+                ['text' => 'Hello'],
             ],
-        ]);
+        ],
+    ],
+]);
+
 
         if (!$response->successful()) {
             return response()->json([
@@ -128,4 +129,3 @@ class HealthAdviceController extends Controller
         ], 201);
     }
 }
-
