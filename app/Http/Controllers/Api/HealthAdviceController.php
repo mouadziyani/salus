@@ -57,7 +57,6 @@ class HealthAdviceController extends Controller
                 'message' => 'Aucun symptéme récent'
             ], 422);
         }
-
         $symptomLines = $symptoms->map(function (Symptom $symptom) {
             $line = $symptom->name . ' (' . $symptom->severity . ')';
             if ($symptom->description) {
